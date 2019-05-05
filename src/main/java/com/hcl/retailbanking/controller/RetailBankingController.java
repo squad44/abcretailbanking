@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hcl.retailbanking.entities.Admin;
 import com.hcl.retailbanking.pojos.Response;
 import com.hcl.retailbanking.service.AdminService;
+import com.hcl.retailbanking.service.ManagePayeeService;
 
 @RestController
 @RequestMapping("/retailbanking")
@@ -16,6 +17,8 @@ public class RetailBankingController {
 
 	@Autowired
 	private AdminService adminService;
+	
+	@Autowired ManagePayeeService managePayeeService;
 
 	@PostMapping("/adminlogin")
 	public Response adminLogin(@RequestParam String userName, @RequestParam String password) {
@@ -29,5 +32,6 @@ public class RetailBankingController {
 		}
 		return null;
 	}
+	            
 
 }

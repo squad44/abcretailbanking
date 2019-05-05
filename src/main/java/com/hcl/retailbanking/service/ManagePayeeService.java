@@ -1,5 +1,9 @@
 package com.hcl.retailbanking.service;
 
-public interface ManagePayeeService {
+import java.util.List;
 
+import com.hcl.retailbanking.service.impl.ManagePayeeServiceImpl;
+
+public interface ManagePayeeService {
+	List<ManagePayeeServiceImpl> getPayee(Long accountId);
 }
