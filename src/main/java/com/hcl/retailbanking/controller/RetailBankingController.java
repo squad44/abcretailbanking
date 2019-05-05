@@ -2,30 +2,24 @@ package com.hcl.retailbanking.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.hcl.retailbanking.entities.CustomerCreationEntity;
-import com.hcl.retailbanking.pojos.Response;
-import com.hcl.retailbanking.service.RetailBankingService;
-=======
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hcl.retailbanking.entities.Admin;
+import com.hcl.retailbanking.entities.CustomerCreationEntity;
 import com.hcl.retailbanking.pojos.Response;
 import com.hcl.retailbanking.service.AdminService;
->>>>>>> development
+import com.hcl.retailbanking.service.RetailBankingService;
 
 @RestController
 @RequestMapping("/retailbanking")
 public class RetailBankingController {
 
 	@Autowired
-<<<<<<< HEAD
 	RetailBankingService retailbankService;
+	@Autowired
+	private AdminService adminService;
 
 	@PostMapping("/customerLogin")
 	public Response customerLogin(@RequestParam("id") int id) {
@@ -40,10 +34,6 @@ public class RetailBankingController {
 		return retailbankService.fetchAccountSummary(id);
 	}
 
-}
-=======
-	private AdminService adminService;
-
 	@PostMapping("/adminlogin")
 	public Response adminLogin(@RequestParam String userName, @RequestParam String password) {
 		Admin admin = adminService.fetchAdminDetails(userName, password);
@@ -56,6 +46,13 @@ public class RetailBankingController {
 		}
 		return null;
 	}
+	
+	/* @PostMapping("addPayee")
+	public CustomerCreationEntity addPayee(@RequestParam(name = "accountId", required = true) long accountId,
+			@RequestBody CustomerCreation customer) {
+		if(customer.getCustomerAccountNumber()) {
+			boolean isAlreadyExist = retailbankService.
+		}
+	} */
 
 }
->>>>>>> development
