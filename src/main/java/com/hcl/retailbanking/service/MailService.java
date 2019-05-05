@@ -20,7 +20,7 @@ public class MailService {
 		}
 	}
 	
-	public void sendMail(String to, String otp) throws Exception{
+	private void sendMail(String to, String otp) throws Exception{
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo(to);
 		message.setSubject("This is OTP to verify the Payee !!!");
