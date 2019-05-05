@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hcl.retailbanking.entities.CustomerCreationEntity;
+import com.hcl.retailbanking.pojos.Response;
 import com.hcl.retailbanking.service.RetailBankingService;
 
 @RestController
@@ -13,7 +14,7 @@ public class RetailBankingController {
 
 	@Autowired
 	RetailBankingService retailbankService;
-	
+
 	@PostMapping("/customerLogin")
 	public Response customerLogin(@RequestParam("id") int id) {
 		if (retailbankService.validateUser(id)) {
@@ -26,5 +27,5 @@ public class RetailBankingController {
 	public CustomerCreationEntity getAccountSummary(@RequestParam("id") Long id) {
 		return retailbankService.fetchAccountSummary(id);
 	}
-	
+
 }
