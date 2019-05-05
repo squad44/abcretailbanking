@@ -17,13 +17,13 @@ public class ManagePayeeController {
 	ManagePayeeService managePayeeService;
 	
 	@PostMapping("addPayee")
-	public CustomerCreationEntity addPayee(@RequestParam(name = "accountId", required = true) long accountId,
+	public CustomerCreationEntity addPayee(@RequestParam(name = "accountId", required = true) Long accountId,
 			@RequestBody CustomerCreation customer) {
-		if(customer.getCustomerAccountNumber() != null) {
-			boolean isAlreadyExist = managePayeeService.doPayeeValidation(accountId, customer.getCustomerAccountNumber());
+		if(customer.getCustomerId() == null) {
+			boolean isAlreadyExist = managePayeeService.doPayeeValidation(accountId, customer.getCustomerId());
 			
 			if(!isAlreadyExist) {
-				retailbankService.addPayee(customer, accountId);
+				managePayeeService.addPayee(customer, accountId);
 			}
 		}
 	}
