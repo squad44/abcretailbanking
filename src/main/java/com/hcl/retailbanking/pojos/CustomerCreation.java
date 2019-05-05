@@ -4,11 +4,19 @@ import java.util.Date;
 
 public class CustomerCreation {
 	
+	private long CustomerId;
 	private String customer_name;
 	private Date customer_dob;
 	private long customer_phone_number;
 	private String account_type;
 	private double balance;
+	
+	public long getCustomerId() {
+		return CustomerId;
+	}
+	public void setCustomerId(long customerId) {
+		CustomerId = customerId;
+	}
 	public String getCustomer_name() {
 		return customer_name;
 	}

@@ -22,6 +22,9 @@ public class CustomerCreationEntity {
 	private String account_type;
 	private double balance;
 	private Date account_creation_timestamp;
+	
+	@OneToMany()
+	
 	public long getCustomer_id() {
 		return customer_id;
 	}
